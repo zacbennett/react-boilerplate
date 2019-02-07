@@ -1,6 +1,4 @@
-const db = require("../db");
-
-
+const db = require('../db');
 class String {
   /** Find all jobs (can filter on terms in data). */
 
@@ -19,7 +17,7 @@ class String {
       `INSERT INTO strings (data) 
              VALUES ($1) 
              RETURNING data`,
-      [data.string],
+      [data],
     );
 
     return result.rows[0];

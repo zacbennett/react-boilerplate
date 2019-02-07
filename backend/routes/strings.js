@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router({ mergeParams: true });
 
 // const { adminRequired, authRequired } = require('../middleware/auth');
@@ -8,7 +9,7 @@ const String = require('../models/string');
 
 // const { jobNewSchema, jobUpdateSchema } = require('../schemas');
 
-router.get('/strings', async (req, res, next) => {
+router.get('/strings', async function(req, res, next) {
   try {
     const strings = await String.findAll();
     return res.json({ strings });
@@ -17,7 +18,7 @@ router.get('/strings', async (req, res, next) => {
   }
 });
 
-router.post('/strings', async (req, res, next) => {
+router.post('/strings', async function(req, res, next) {
   try {
     const string = await String.add(req.body);
     return res.status(201).json({ string });
