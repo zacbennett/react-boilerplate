@@ -3,10 +3,10 @@
 const { Client } = require('pg');
 
 const client = new Client({
-  connectionString: strings
+  connectionString: 'postgresql:///dmi',
 });
 
 client.connect();
 
-
 module.exports = client;
+
