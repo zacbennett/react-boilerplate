@@ -1,6 +1,6 @@
 /**
  *
- * Asynchronously loads the component for AddString
+ * Asynchronously loads the component for ShowStrings
  *
  */
 

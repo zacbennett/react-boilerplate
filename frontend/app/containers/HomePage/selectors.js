@@ -9,7 +9,8 @@ const selectHome = state => state.get('home', initialState);
 
 const makeSelectString = () =>
   createSelector(selectHome, homeState => homeState.get('string'));
-// const makeSelectUsername = () =>
-//   createSelector(selectHome, homeState => homeState.get('username'));
 
-export { selectHome, makeSelectString };
+const makeSelectUsername = () =>
+  createSelector(selectHome, homeState => homeState.get('username'));
+
+export { selectHome, makeSelectUsername, makeSelectString };

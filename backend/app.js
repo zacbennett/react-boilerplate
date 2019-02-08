@@ -1,10 +1,16 @@
+/** Express app for jobly. */
+
 const express = require('express');
 const app = express();
+const cors = require('cors')
+
+app.use(cors())
 app.use(express.json());
 
 const String = require('./models/string');
 
-// Get all strings to the database
+
+// Get all the strings to the database
 app.get('/strings', async function(req, res, next) {
   try {
     const strings = await String.findAll();
@@ -14,10 +20,9 @@ app.get('/strings', async function(req, res, next) {
   }
 });
 
-// Add strings to the database
+// Add a string to the database
 app.post('/strings', async function(req, res, next) {
   try {
-    console.log(req.body.data)
     const string = await String.add(req.body.data);
     return res.status(201).json({ string });
   } catch (err) {
@@ -25,9 +30,7 @@ app.post('/strings', async function(req, res, next) {
   }
 })
 
-
-/** 404 handler */
-
+// 404 handler
 app.use(function (req, res, next) {
   const err = new Error('Not Found');
   err.status = 404;
@@ -36,8 +39,7 @@ app.use(function (req, res, next) {
   return next(err);
 });
 
-/** general error handler */
-
+// General error handler
 app.use(function (err, req, res, next) {
   res.status(err.status || 500);
 
