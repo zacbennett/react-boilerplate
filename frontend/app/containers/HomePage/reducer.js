@@ -45,7 +45,7 @@ function homeReducer(state = initialState, action) {
       return state
         .set('loading', false)
         .set('successMsg', '')
-        .set('error', 'There was an error!');
+        .set('error', `There was an error!: ${action.error}`);
     case CLEAR_SUCCESS_ERROR:
       return state.set('successMsg', '').set('errorMsg', '');
     default:

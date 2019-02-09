@@ -7,8 +7,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Helmet } from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
@@ -59,7 +57,6 @@ export class ShowStrings extends React.Component {
 }
 
 ShowStrings.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   loading: PropTypes.bool,
   strings: PropTypes.array,
   loadStrings: PropTypes.func,

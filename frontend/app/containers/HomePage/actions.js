@@ -58,8 +58,9 @@ export function uploadStringSuccess() {
     type: UPLOAD_STRING_SUCCESS,
   };
 }
-export function uploadStringError() {
+export function uploadStringError(error) {
   return {
     type: UPLOAD_STRING_ERROR,
+    error,
   };
 }
