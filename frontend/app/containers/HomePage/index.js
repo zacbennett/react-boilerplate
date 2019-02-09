@@ -13,17 +13,11 @@ import { createStructuredSelector } from 'reselect';
 
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
-import {
-  makeSelectRepos,
-  makeSelectLoading,
-  makeSelectError,
-} from 'containers/App/selectors';
-import ReposList from 'components/ReposList';
 
 import Form from './Form';
 import Input from './Input';
 
-import { changeString, uploadString } from './actions';
+import { changeString, uploadString, clearSuccessError } from './actions';
 import {
   makeSelectString,
   makeSelectErrorMsg,
@@ -34,23 +28,14 @@ import saga from './saga';
 
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.PureComponent {
-  /**
-   * when initial state username is not null, submit the form to load repos
-   */
   componentDidMount() {
-    if (this.props.username && this.props.username.trim().length > 0) {
-      this.props.onSubmitForm();
-    }
+    this.props.clearSuccessError();
   }
 
   render() {
-    const { loading, error, repos } = this.props;
-    const reposListProps = {
-      loading,
-      error,
-      repos,
-    };
-
+    const displayMsg = this.props.errorMsg
+      ? this.props.errorMsg
+      : this.props.successMsg;
     return (
       <div>
         <h1>Hello there! Add a string below:</h1>
@@ -65,27 +50,25 @@ export class HomePage extends React.PureComponent {
           </label>
           <button type="submit">Submit!</button>
         </Form>
-        <h1>{this.props.successMsg}</h1>
+        <h1>{displayMsg}</h1>
       </div>
     );
   }
 }
 
 HomePage.propTypes = {
-  loading: PropTypes.bool,
-  error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-  repos: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
   onSubmitForm: PropTypes.func,
-  username: PropTypes.string,
   string: PropTypes.string,
   errorMsg: PropTypes.string,
   successMsg: PropTypes.string,
   changeString: PropTypes.func,
+  clearSuccessError: PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
     changeString: evt => dispatch(changeString(evt.target.value)),
+    clearSuccessError: () => dispatch(clearSuccessError()),
     onSubmitForm: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
       dispatch(uploadString());
@@ -94,10 +77,7 @@ export function mapDispatchToProps(dispatch) {
 }
 
 const mapStateToProps = createStructuredSelector({
-  repos: makeSelectRepos(),
-  // username: makeSelectUsername(),
   string: makeSelectString(),
-  loading: makeSelectLoading(),
   errorMsg: makeSelectErrorMsg(),
   successMsg: makeSelectSuccessMsg(),
 });

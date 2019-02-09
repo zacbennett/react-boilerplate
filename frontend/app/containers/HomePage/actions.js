@@ -21,6 +21,7 @@ import {
   UPLOAD_STRING,
   UPLOAD_STRING_SUCCESS,
   UPLOAD_STRING_ERROR,
+  CLEAR_SUCCESS_ERROR,
 } from './constants';
 
 /**
@@ -40,6 +41,11 @@ export function changeString(string) {
   return {
     type: CHANGE_STRING,
     string,
+  };
+}
+export function clearSuccessError() {
+  return {
+    type: CLEAR_SUCCESS_ERROR,
   };
 }
 export function uploadString() {

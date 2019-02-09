@@ -14,3 +14,4 @@ export const CHANGE_STRING = 'boilerplate/Home/CHANGE_STRING';
 export const UPLOAD_STRING = 'boilerplate/Home/UPLOAD_STRING';
 export const UPLOAD_STRING_SUCCESS = 'boilerplate/Home/UPLOAD_STRING_SUCCESS';
 export const UPLOAD_STRING_ERROR = 'boilerplate/Home/UPLOAD_STRING_ERROR';
+export const CLEAR_SUCCESS_ERROR = 'boilerplate/Home/CLEAR_SUCCESS_ERROR';

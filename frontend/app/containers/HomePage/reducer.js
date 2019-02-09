@@ -16,6 +16,7 @@ import {
   UPLOAD_STRING,
   UPLOAD_STRING_SUCCESS,
   UPLOAD_STRING_ERROR,
+  CLEAR_SUCCESS_ERROR,
 } from './constants';
 // import { CHANGE_USERNAME } from './constants';
 
@@ -45,6 +46,8 @@ function homeReducer(state = initialState, action) {
         .set('loading', false)
         .set('successMsg', '')
         .set('error', 'There was an error!');
+    case CLEAR_SUCCESS_ERROR:
+      return state.set('successMsg', '').set('errorMsg', '');
     default:
       return state;
   }
