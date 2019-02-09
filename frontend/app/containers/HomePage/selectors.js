@@ -13,4 +13,16 @@ const makeSelectString = () =>
 const makeSelectUsername = () =>
   createSelector(selectHome, homeState => homeState.get('username'));
 
-export { selectHome, makeSelectUsername, makeSelectString };
+const makeSelectSuccessMsg = () =>
+  createSelector(selectHome, homeState => homeState.get('successMsg'));
+
+const makeSelectErrorMsg = () =>
+  createSelector(selectHome, homeState => homeState.get('errorMsg'));
+
+export {
+  selectHome,
+  makeSelectUsername,
+  makeSelectString,
+  makeSelectErrorMsg,
+  makeSelectSuccessMsg,
+};

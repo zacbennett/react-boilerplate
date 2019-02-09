@@ -21,25 +21,38 @@ import makeSelectShowStrings, {
 import { loadStrings } from './actions';
 import reducer from './reducer';
 import saga from './saga';
-import messages from './messages';
 
 /* eslint-disable react/prefer-stateless-function */
 export class ShowStrings extends React.Component {
+  constructor() {
+    super();
+
+    this.renderList = 'Loading';
+  }
+
   componentDidMount() {
     // Dispatch that gets the state
-
     this.props.loadStrings();
   }
 
   render() {
-    console.log(this.props.allStrings);
+    let loading = <h1>Loading</h1>;
+
+    if (this.props.loading === false) {
+      const listOfStrings = this.props.allStrings.strings;
+      console.log('list of strings are here', listOfStrings);
+      this.renderList = listOfStrings.map(item => (
+        <li key={item.id}>{item.data}</li>
+      ));
+      loading = null;
+      console.log('boop');
+    }
+
     return (
       <div>
-        <Helmet>
-          <title>ShowStrings</title>
-          <meta name="description" content="Description of ShowStrings" />
-        </Helmet>
-        <FormattedMessage {...messages.header} />
+        <h1>Hello there! Here are some strings:</h1>
+        {loading}
+        <ul>{this.renderList}</ul>
       </div>
     );
   }
@@ -50,6 +63,7 @@ ShowStrings.propTypes = {
   loading: PropTypes.bool,
   strings: PropTypes.array,
   loadStrings: PropTypes.func,
+  allStrings: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({

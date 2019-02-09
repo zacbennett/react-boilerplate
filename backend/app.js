@@ -23,6 +23,8 @@ app.get('/strings', async function(req, res, next) {
 // Add a string to the database
 app.post('/strings', async function(req, res, next) {
   try {
+    console.log('\n\nreq is ', req);   
+    console.log('\n\nreq.body is ', req.body);   
     const string = await String.add(req.body.data);
     return res.status(201).json({ string });
   } catch (err) {

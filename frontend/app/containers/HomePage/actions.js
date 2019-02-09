@@ -16,7 +16,12 @@
  */
 
 // import { CHANGE_USERNAME } from './constants';
-import { CHANGE_STRING } from './constants';
+import {
+  CHANGE_STRING,
+  UPLOAD_STRING,
+  UPLOAD_STRING_SUCCESS,
+  UPLOAD_STRING_ERROR,
+} from './constants';
 
 /**
  * Changes the input field of the form
@@ -35,5 +40,20 @@ export function changeString(string) {
   return {
     type: CHANGE_STRING,
     string,
+  };
+}
+export function uploadString() {
+  return {
+    type: UPLOAD_STRING,
+  };
+}
+export function uploadStringSuccess() {
+  return {
+    type: UPLOAD_STRING_SUCCESS,
+  };
+}
+export function uploadStringError() {
+  return {
+    type: UPLOAD_STRING_ERROR,
   };
 }
