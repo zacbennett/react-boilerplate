@@ -4,7 +4,6 @@ import { loadStringsSuccess, loadStringsError } from './actions';
 
 import { LOAD_STRINGS } from './constants';
 
-// Individual exports for testing
 export function* getStrings() {
   const requestURL = `http://localhost:3001/strings`;
 

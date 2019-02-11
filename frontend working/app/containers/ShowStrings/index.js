@@ -32,7 +32,8 @@ export class ShowStrings extends React.Component {
     const listOfStrings = this.props.allStrings.strings;
     let display;
 
-    // Prevents calling List component when the page first mounts as we don't yet have the strings in props
+    // Prevents calling List component when the page first mounts as we don't yet
+    // have the strings in props
     if (!this.props.loading) {
       display = <List listOfStrings={listOfStrings} />;
     } else if (this.props.error) {

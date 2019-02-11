@@ -17,7 +17,7 @@ describe('<NotFound />', () => {
         <H1>
           <FormattedMessage
             id="boilerplate.containers.NotFoundPage.header"
-            defaultMessage="Page not found."
+            defaultMessage="Page not found. Please pick one of the links above"
           />
         </H1>,
       ),
