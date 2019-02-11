@@ -9,13 +9,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import makeSelectShowStrings, {
   makeSelectAllStrings,
   makeSelectLoading,
 } from './selectors';
+import List from '../../components/List';
 import { loadStrings } from './actions';
 import reducer from './reducer';
 import saga from './saga';
@@ -34,23 +34,20 @@ export class ShowStrings extends React.Component {
   }
 
   render() {
-    let loading = <h1>Loading</h1>;
+    const listOfStrings = this.props.allStrings.strings;
 
-    if (this.props.loading === false) {
-      const listOfStrings = this.props.allStrings.strings;
-      console.log('list of strings are here', listOfStrings);
-      this.renderList = listOfStrings.map(item => (
-        <li key={item.id}>{item.data}</li>
-      ));
-      loading = null;
-      console.log('boop');
-    }
+    // if (this.props.loading === false) {
+    //   loading = null;
+    // }
 
     return (
       <div>
         <h1>Hello there! Here are some strings:</h1>
-        {loading}
-        <ul>{this.renderList}</ul>
+        {this.props.loading ? (
+          <h1>Loading</h1>
+        ) : (
+          <List listOfStrings={listOfStrings} />
+        )}
       </div>
     );
   }

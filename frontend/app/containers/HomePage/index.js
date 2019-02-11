@@ -55,7 +55,10 @@ export class HomePage extends React.PureComponent {
     );
   }
 }
-
+// use styled divs, just one
+// write a test for component
+// fix homepage so it doesn't say homepage lolol
+// add comments and remove consolelogs
 HomePage.propTypes = {
   onSubmitForm: PropTypes.func,
   string: PropTypes.string,

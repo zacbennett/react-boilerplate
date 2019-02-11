@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 const Ul = styled.ul`
-  list-style: none;
-  margin: 0;
+  margin-top: 2em;
+  margin-bottom: 2em;
   width: 100%;
   max-height: 30em;
   overflow-y: auto;
-  padding: 0 1em;
 `;
 
 export default Ul;

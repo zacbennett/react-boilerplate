@@ -5,17 +5,11 @@
  */
 
 import {
-  DEFAULT_ACTION,
   LOAD_STRINGS,
   LOAD_STRINGS_SUCCESS,
   LOAD_STRINGS_ERROR,
 } from './constants';
 
-export function defaultAction() {
-  return {
-    type: DEFAULT_ACTION,
-  };
-}
 
 export function loadStrings() {
   return {
@@ -28,8 +22,9 @@ export function loadStringsSuccess(strings) {
     strings,
   };
 }
-export function loadStringsError() {
+export function loadStringsError(error) {
   return {
     type: LOAD_STRINGS_ERROR,
+    error,
   };
 }

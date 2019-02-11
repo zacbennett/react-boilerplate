@@ -13,7 +13,6 @@ import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import ShowStrings from 'containers/ShowStrings/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 
@@ -40,8 +39,7 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/addstring" component={HomePage} />
-        <Route path="/showstrings" component={ShowStrings} />
-        <Route path="/features" component={FeaturePage} />
+        <Route exact path="/showstrings" component={ShowStrings} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

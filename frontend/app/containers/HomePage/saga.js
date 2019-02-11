@@ -14,6 +14,10 @@ import { UPLOAD_STRING } from './constants';
  */
 export function* saveString() {
   const string = yield select(makeSelectString());
+  // TODO, error handling
+  // if (string === '') {
+  //   yield put(uploadStringError(err));
+  // }
   console.log('what is the string?', string);
   const requestURL = `http://localhost:3001/strings`;
   // not pass the string into the request, whhhyy?
