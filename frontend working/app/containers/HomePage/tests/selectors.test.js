@@ -23,7 +23,6 @@ describe('makeSelectUsername', () => {
         username,
       },
     });
-    console.log('2', usernameSelector(mockedState));
 
     expect(usernameSelector(mockedState)).toEqual(username);
   });

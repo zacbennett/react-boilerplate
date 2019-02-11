@@ -16,7 +16,6 @@ describe('select ShowString state', () => {
     const mockedState = fromJS({
       showStrings: homeState,
     });
-    console.log('1', mockedState);
     expect(selectShowStringsDomain(mockedState)).toEqual(homeState);
   });
 
@@ -31,7 +30,6 @@ describe('select ShowString state', () => {
   //       },
   //     });
 
-  //     console.log('2', allStrings(mockedState)[0]);
 
   //     expect(allStrings(mockedState)).toEqual(strings);
   //   });

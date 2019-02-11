@@ -37,13 +37,14 @@ export class ShowStrings extends React.Component {
   render() {
     const listOfStrings = this.props.allStrings.strings;
     let display;
-    if (this.props.loading) {
+
+    if (!this.props.loading) {
       display = <List listOfStrings={listOfStrings} />;
     } else if (this.props.error) {
       display = <h1>{this.props.error}</h1>;
-    } else if (listOfStrings.length !== 0) {
+    } else if (listOfStrings !== undefined && listOfStrings.length !== 0) {
       display = <List listOfStrings={listOfStrings} />;
-    } else if (listOfStrings.length > 0) {
+    } else if (listOfStrings !== undefined && listOfStrings.length > 0) {
       display = <h1>No strings have been added!</h1>;
     }
 

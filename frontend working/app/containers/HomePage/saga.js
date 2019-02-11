@@ -18,7 +18,6 @@ export function* saveString() {
   // if (string === '') {
   //   yield put(uploadStringError(err));
   // }
-  console.log('what is the string?', string);
   const requestURL = `http://localhost:3001/strings`;
   // not pass the string into the request, whhhyy?
 

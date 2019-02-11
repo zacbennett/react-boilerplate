@@ -5,7 +5,6 @@ import Ul from './Ul';
 import Wrapper from './Wrapper';
 
 function List(props) {
-  console.log('in the list!', props);
   const { listOfStrings } = props;
   let content;
   // If we have items, render them
