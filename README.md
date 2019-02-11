@@ -9,3 +9,5 @@
   * Run 'npm install'
   * Run 'npm start'
   * This starts the frontend server starting at localhost:3000
+
+Navigate to localhost:3000/addstring to start.
