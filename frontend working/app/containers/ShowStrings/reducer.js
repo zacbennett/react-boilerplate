@@ -24,7 +24,9 @@ function showStringsReducer(state = initialState, action) {
     case LOAD_STRINGS:
       return state.set('loading', true);
     case LOAD_STRINGS_ERROR:
-      return state.set('loading', false).set('error', 'There was an error!');
+      return state
+        .set('loading', false)
+        .set('error', `There was an error: ${action.error}`);
     case LOAD_STRINGS_SUCCESS:
       console.log('omg look i made it', action.strings);
       return state.set('strings', action.strings).set('loading', false);

@@ -28,5 +28,13 @@ const makeSelectLoading = () =>
     homeState.get('loading'),
   );
 
+const makeSelectError = () =>
+  createSelector(selectShowStringsDomain, homeState => homeState.get('error'));
+
 export default makeSelectShowStrings;
-export { selectShowStringsDomain, makeSelectLoading, makeSelectAllStrings };
+export {
+  selectShowStringsDomain,
+  makeSelectLoading,
+  makeSelectAllStrings,
+  makeSelectError,
+};

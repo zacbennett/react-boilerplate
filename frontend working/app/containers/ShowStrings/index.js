@@ -14,6 +14,7 @@ import injectReducer from 'utils/injectReducer';
 import makeSelectShowStrings, {
   makeSelectAllStrings,
   makeSelectLoading,
+  makeSelectError,
 } from './selectors';
 import List from '../../components/List';
 import { loadStrings } from './actions';
@@ -35,19 +36,21 @@ export class ShowStrings extends React.Component {
 
   render() {
     const listOfStrings = this.props.allStrings.strings;
-
-    // if (this.props.loading === false) {
-    //   loading = null;
-    // }
+    let display;
+    if (this.props.loading) {
+      display = <List listOfStrings={listOfStrings} />;
+    } else if (this.props.error) {
+      display = <h1>{this.props.error}</h1>;
+    } else if (listOfStrings.length !== 0) {
+      display = <List listOfStrings={listOfStrings} />;
+    } else if (listOfStrings.length > 0) {
+      display = <h1>No strings have been added!</h1>;
+    }
 
     return (
       <div>
         <h1>Hello there! Here are some strings:</h1>
-        {this.props.loading ? (
-          <h1>Loading</h1>
-        ) : (
-          <List listOfStrings={listOfStrings} />
-        )}
+        {display}
       </div>
     );
   }
@@ -56,6 +59,7 @@ export class ShowStrings extends React.Component {
 ShowStrings.propTypes = {
   loading: PropTypes.bool,
   strings: PropTypes.array,
+  error: PropTypes.string,
   loadStrings: PropTypes.func,
   allStrings: PropTypes.object,
 };
@@ -63,10 +67,11 @@ ShowStrings.propTypes = {
 const mapStateToProps = createStructuredSelector({
   showStrings: makeSelectShowStrings(),
   loading: makeSelectLoading(),
+  error: makeSelectError(),
   allStrings: makeSelectAllStrings(),
 });
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return {
     dispatch,
     loadStrings: () => dispatch(loadStrings()),

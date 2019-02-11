@@ -36,10 +36,13 @@ describe('homeReducer', () => {
     );
   });
 
-  // it('should handle the loadString action correctly', () => {
-  //   const fixture = 'mxstbr';
-  //   const expectedResult = state.set('username', fixture);
+  it('should handle the loadStringError action correctly', () => {
+    const error = 'No empty strings!';
 
-  //   expect(homeReducer(state, changeUsername(fixture))).toEqual(expectedResult);
-  // });
+    const expectedResult = state
+      .set('loading', false)
+      .set('error', `There was an error: ${error}`);
+
+    expect(homeReducer(state, loadStringsError(error))).toEqual(expectedResult);
+  });
 });
