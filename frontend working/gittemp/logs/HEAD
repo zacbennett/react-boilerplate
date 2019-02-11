@@ -1,0 +1,3 @@
+0000000000000000000000000000000000000000 1db8b3c3c4c2a41201010b80101f1e4762afedfe Zac B <zacbennett0@gmail.com> 1549390947 -0800	commit (initial): first commit
+1db8b3c3c4c2a41201010b80101f1e4762afedfe 5fb371619a1a6d8b44a00ececf422f9a9f7dacad Zac B <zacbennett0@gmail.com> 1549406890 -0800	commit: created main page
+5fb371619a1a6d8b44a00ececf422f9a9f7dacad d0a9e81f687600fa1a3806a9cd756b5b908accba Zac B <zacbennett0@gmail.com> 1549412827 -0800	commit: added constants, actions, reducers and selectors
