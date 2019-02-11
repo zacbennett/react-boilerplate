@@ -1,5 +1,5 @@
 /**
- * Homepage selectors
+ * Add String selectors
  */
 
 import { createSelector } from 'reselect';

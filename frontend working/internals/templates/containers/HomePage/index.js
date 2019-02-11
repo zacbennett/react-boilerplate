@@ -1,5 +1,5 @@
 /*
- * HomePage
+ * AddString
  *
  * This is the first thing users see of our App, at the '/' route
  *

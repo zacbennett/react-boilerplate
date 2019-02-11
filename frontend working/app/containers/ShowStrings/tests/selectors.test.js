@@ -30,7 +30,6 @@ describe('select ShowString state', () => {
   //       },
   //     });
 
-
   //     expect(allStrings(mockedState)).toEqual(strings);
   //   });
   // });

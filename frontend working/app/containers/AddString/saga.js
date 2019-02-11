@@ -5,7 +5,7 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 
 import request from 'utils/request';
-import { makeSelectString } from 'containers/HomePage/selectors';
+import { makeSelectString } from 'containers/AddString/selectors';
 import { uploadStringSuccess, uploadStringError } from './actions';
 
 import { UPLOAD_STRING } from './constants';

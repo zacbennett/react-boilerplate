@@ -23,14 +23,8 @@ import saga from './saga';
 
 /* eslint-disable react/prefer-stateless-function */
 export class ShowStrings extends React.Component {
-  constructor() {
-    super();
-
-    this.renderList = 'Loading';
-  }
-
   componentDidMount() {
-    // Dispatch that gets the state
+    // Call the action to make the API request
     this.props.loadStrings();
   }
 
@@ -38,6 +32,7 @@ export class ShowStrings extends React.Component {
     const listOfStrings = this.props.allStrings.strings;
     let display;
 
+    // Prevents calling List component when the page first mounts as we don't yet have the strings in props
     if (!this.props.loading) {
       display = <List listOfStrings={listOfStrings} />;
     } else if (this.props.error) {

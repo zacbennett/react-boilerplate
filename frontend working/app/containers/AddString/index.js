@@ -1,9 +1,3 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -27,12 +21,14 @@ import reducer from './reducer';
 import saga from './saga';
 
 /* eslint-disable react/prefer-stateless-function */
-export class HomePage extends React.PureComponent {
+export class AddString extends React.PureComponent {
   componentDidMount() {
+    // Clears the success/error messages when mounting the page
     this.props.clearSuccessError();
   }
 
   render() {
+    // Displays an error message or success message
     const displayMsg = this.props.errorMsg
       ? this.props.errorMsg
       : this.props.successMsg;
@@ -55,11 +51,8 @@ export class HomePage extends React.PureComponent {
     );
   }
 }
-// use styled divs, just one
-// write a test for component
-// fix homepage so it doesn't say homepage lolol
-// add comments and remove consolelogs
-HomePage.propTypes = {
+
+AddString.propTypes = {
   onSubmitForm: PropTypes.func,
   string: PropTypes.string,
   errorMsg: PropTypes.string,
@@ -97,4 +90,4 @@ export default compose(
   withReducer,
   withSaga,
   withConnect,
-)(HomePage);
+)(AddString);

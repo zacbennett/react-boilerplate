@@ -11,7 +11,7 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
-import HomePage from 'containers/HomePage/Loadable';
+import AddString from 'containers/AddString/Loadable';
 import ShowStrings from 'containers/ShowStrings/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
@@ -38,7 +38,7 @@ export default function App() {
       </Helmet>
       <Header />
       <Switch>
-        <Route exact path="/addstring" component={HomePage} />
+        <Route exact path="/addstring" component={AddString} />
         <Route exact path="/showstrings" component={ShowStrings} />
         <Route path="" component={NotFoundPage} />
       </Switch>

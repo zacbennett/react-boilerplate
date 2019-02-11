@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getRepos Saga should call the repoLoadingError action if the response errors 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      "http://localhost:3001/strings",
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`getRepos Saga should dispatch the reposLoaded action if it requests the data successfully 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      "http://localhost:3001/strings",
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`showStrings Saga makeAPICallForStrings Saga should start task to watch for LOAD_STRING action 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      "http://localhost:3001/strings",
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`showStrings Saga should call the repoLoadingError action if the response errors 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      "http://localhost:3001/strings",
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`showStrings Saga should dispatch the reposLoaded action if it requests the data successfully 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      "http://localhost:3001/strings",
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
